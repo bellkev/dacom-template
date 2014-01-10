@@ -51,7 +51,7 @@
                                                         {:src "js/goog/base.js"}
                                                         {:src "js/main.js"}
                                                         {:body "goog.require('{{sanitized}}.client')"}
-                                                        {:body "goog.require('{{sanitizedf}}.repl')"}]}}}
+                                                        {:body "goog.require('{{sanitized}}.repl')"}]}}}
              :db {:main {{name}}.db}
              :prod {:main {{name}}.server
                     :target-path "dist/server/"
