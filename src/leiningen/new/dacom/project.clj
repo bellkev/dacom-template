@@ -50,8 +50,8 @@
                                :extra-values {:scripts [{:src "../bower_components/react/react.js"}
                                                         {:src "js/goog/base.js"}
                                                         {:src "js/main.js"}
-                                                        {:body "goog.require('{{name}}.client')"}
-                                                        {:body "goog.require('{{name}}.repl')"}]}}}
+                                                        {:body "goog.require('{{sanitized}}.client')"}
+                                                        {:body "goog.require('{{sanitizedf}}.repl')"}]}}}
              :db {:main {{name}}.db}
              :prod {:main {{name}}.server
                     :target-path "dist/server/"
@@ -67,8 +67,8 @@
                          "--include-path=bower_components/bootstrap/less/" "--compress"]
             "watch-less" ["fschange" "web-resources/stylesheets/*" "less-debug"]
             "install-db" ["with-profile" "db" "run"]
-            "run-client" ["do" "bower," "cljsbuild" "once," "less-debug," "resource," "httpd" "8000"]
+            "run-client" ["do" "bower," "cljsbuild" "once" "dev," "less-debug," "resource," "httpd" "8000"]
             "run-server" ["ring" "server-headless"]
-            "dist" ["with-profile" "prod" "do" "uberjar," "cljsbuild" "once" "prod," "less-prod,"
+            "dist" ["with-profile" "prod" "do" "bower," "uberjar," "cljsbuild" "once" "prod," "less-prod,"
                     "resource"]}
   :clean-targets [:target-path :compile-path "static" "dist"])
