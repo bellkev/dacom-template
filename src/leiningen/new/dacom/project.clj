@@ -52,7 +52,7 @@
                                                         {:src "js/main.js"}
                                                         {:body "goog.require('{{sanitized}}.client')"}
                                                         {:body "goog.require('{{sanitized}}.repl')"}]}}}
-             :db {:main {{name}}.db}
+             :db [:dev {:main {{name}} .db}]
              :prod {:main {{name}}.server
                     :target-path "dist/server/"
                     :resource {:resource-paths ["web-resources/pages"]
